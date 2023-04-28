@@ -1,0 +1,17 @@
+
+{
+  "mappings": {
+    "properties": {
+      "field1": {
+        "type": "keyword"
+      },
+      "field2": {
+        "type": "text"
+      },
+      "field3": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss"
+      }
+    }
+  }
+}
