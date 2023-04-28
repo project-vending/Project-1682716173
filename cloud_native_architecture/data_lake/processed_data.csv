@@ -1,0 +1,14 @@
+python
+import pandas as pd
+
+raw_data_path = "cloud_native_architecture/data_lake/raw_data.csv"
+processed_data_path = "cloud_native_architecture/data_lake/processed_data.csv"
+
+# Load raw data
+raw_data = pd.read_csv(raw_data_path)
+
+# Perform processing on raw data
+processed_data = raw_data.groupby(["category"]).agg({"value": "sum"})
+
+# Write processed data to file
+processed_data.to_csv(processed_data_path, index=False)
