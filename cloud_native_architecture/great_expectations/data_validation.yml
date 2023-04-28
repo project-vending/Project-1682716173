@@ -1,0 +1,22 @@
+
+datasources:
+  my_data_lake:
+    data_asset_type: "Dataset"
+    class_name: PandasDataset
+    path: "cloud_native_architecture/data_lake/processed_data.csv"
+    batch_kwargs:
+      index_col: 0
+
+expectations:
+  - expectation_type: expect_table_row_count_to_equal
+    kwargs:
+      value: 1000
+    meta:
+      test_type: acceptance
+
+  - expectation_type: expect_column_values_to_not_be_null
+    kwargs:
+      column: "order_date"
+      mostly: 0.9
+    meta:
+      test_type: quality
