@@ -1,0 +1,18 @@
+
+import csv
+
+# sample data to write to the file
+data = [
+    {'id': 1, 'name': 'John Doe', 'age': 25},
+    {'id': 2, 'name': 'Jane Smith', 'age': 32},
+    {'id': 3, 'name': 'Bob Johnson', 'age': 45},
+]
+
+# write data to the raw_data.csv file
+with open('cloud_native_architecture/data_lake/raw_data.csv', mode='w', newline='') as data_file:
+    fieldnames = ['id', 'name', 'age']
+    writer = csv.DictWriter(data_file, fieldnames=fieldnames)
+
+    writer.writeheader()
+    for row in data:
+        writer.writerow(row)
